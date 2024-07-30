@@ -64,7 +64,8 @@
   width: 100%;
   height: 100%;
   outline: none;
-  padding: 0 17px;
+  padding-left: 20px;
+  padding-right:20px;
   border: none;
   background: none;
   font-size: 1rem;
@@ -84,6 +85,15 @@
   background: none;
   font-size: 1rem;
 }
+.generate-form .img-version{
+  background: none;
+  border-radius: 30px;
+  padding-left: 8px;
+  padding-right: 8px;
+  height: 44px;
+  font-size: 1rem;
+
+}
 
 .generate-form .generate-btn {
   font-size: 1rem;
@@ -96,6 +106,7 @@
   padding: 0 25px;
   border-radius: 30px;
   background: #4949E7;
+  font-weight: bold;
 }
 
 .generate-form .generate-btn[disabled] {
@@ -207,6 +218,13 @@
     color: #000;
   }
 
+  .generate-form .img-version {
+    color: #fff;
+  }
+
+  .generate-form .img-version option {
+    color: #000;
+  }
   .image-gallery {
     margin-top: 20px;
   }

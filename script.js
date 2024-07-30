@@ -9,6 +9,8 @@ document.addEventListener('DOMContentLoaded', function() {
   const updateImageCard = (imgDataArray) => {
     imgDataArray.forEach((imgObject, index) => {
       const imgCard = imageGallery.querySelectorAll(".img-card")[index];
+      if (!imgCard) return; // Skip if there's no corresponding image card
+  
       const imgElement = imgCard.querySelector("img");
       const downloadBtn = imgCard.querySelector(".download-btn");
   
@@ -32,35 +34,40 @@ document.addEventListener('DOMContentLoaded', function() {
       };
     });
   };
-
-  const generateGetimgImages = async (userPrompt, userImgQuantity) => {
+  const generateGetimgImages = async (userPrompt, userImgQuantity, userModel) => {
     try {
-      const response = await fetch("https://api.getimg.ai/v1/stable-diffusion/text-to-image", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "Authorization": `Bearer ${GETIMG_API_KEY}`,
-        },
-        body: JSON.stringify({
-          model: 'stable-diffusion-v1-5',
-          prompt: userPrompt,
-          num_images: userImgQuantity,
-          negative_prompt: 'Disfigured, cartoon, blurry',
-          width: 512,
-          height: 512,
-          steps: 25,
-          guidance: 7.5,
-          seed: 27,
-          output_format: "jpeg",
-        }),
-      });
+      const imagePromises = [];
+      for (let i = 0; i < userImgQuantity; i++) {
+        const promise = fetch("https://api.getimg.ai/v1/stable-diffusion/text-to-image", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${GETIMG_API_KEY}`,
+          },
+          body: JSON.stringify({
+            prompt: userPrompt,
+            num_images: 1,
+            model: userModel,
+            negative_prompt: 'Disfigured, cartoon, blurry',
+            width: 512,
+            height: 512,
+            steps: 25,
+            guidance: 7.5,
+            seed: Math.floor(Math.random() * 1000000),
+            output_format: "jpeg",
+          }),
+        }).then(response => {
+          if (!response.ok) throw new Error("Failed to generate image. Make sure your API key is valid.");
+          return response.json();
+        });
+        imagePromises.push(promise);
+      }
   
-      if (!response.ok) throw new Error("Failed to generate images. Make sure your API key is valid.");
-      
-      const data = await response.json();
-      console.log("API Response:", data);
-      updateImageCard([data]); // Pass the entire data object as an array
-    } catch (error) {
+      const results = await Promise.all(imagePromises);
+      console.log("Full API Responses:", JSON.stringify(results, null, 2));
+      updateImageCard(results);
+    } 
+    catch (error) {
       console.error("Error in generateGetimgImages:", error);
       alert(error.message);
     } finally {
@@ -69,7 +76,7 @@ document.addEventListener('DOMContentLoaded', function() {
       isImageGenerating = false;
     }
   };
-
+  
   const handleImageGeneration = (e) => {
       e.preventDefault();
       if (isImageGenerating) return;
@@ -77,6 +84,7 @@ document.addEventListener('DOMContentLoaded', function() {
       // Get user input and image quantity values
   const userPrompt = document.querySelector(".prompt-input").value;
   const userImgQuantity = parseInt(document.querySelector(".img-quantity").value);
+  const userModel = document.querySelector(".img-version").value;
 
       // Get user input and image quantity values
       //const userPrompt = e.srcElement[0].value;
@@ -98,7 +106,7 @@ document.addEventListener('DOMContentLoaded', function() {
       ).join("");
 
       imageGallery.innerHTML = imgCardMarkup;
-      generateGetimgImages(userPrompt, userImgQuantity);
+      generateGetimgImages(userPrompt, userImgQuantity, userModel);
   };
 
   generateForm.addEventListener("submit", handleImageGeneration);
