@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function() {
   const generateBtn = generateForm.querySelector(".generate-btn");
   const imageGallery = document.querySelector(".image-gallery");
 
-  const GETIMG_API_KEY = "key-1tzCqj23coK0CFsT16jz1Fy8Blig5jr11bhRQjCDISaujE6mbUS3Pk0xwSB7xO3tvXYtBjqz4IKgtLEOPEUYOctbgBq54HH4";
+  const GETIMG_API_KEY = "Your api key here";
   let isImageGenerating = false;
 
   const updateImageCard = (imgDataArray) => {
