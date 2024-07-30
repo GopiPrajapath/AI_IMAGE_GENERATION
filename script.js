@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function() {
   const generateBtn = generateForm.querySelector(".generate-btn");
   const imageGallery = document.querySelector(".image-gallery");
 
-  const GETIMG_API_KEY = "key-4NEHcWfnzWaqSY3a9VBiPawIZUo3JPfQEeMS5m24DVoKCmPp0XS41MWBy4KiS2WGJlP5l9TISlh7rc7uvW77TJKYuyil9Jp6";
+  const GETIMG_API_KEY = "key-1tzCqj23coK0CFsT16jz1Fy8Blig5jr11bhRQjCDISaujE6mbUS3Pk0xwSB7xO3tvXYtBjqz4IKgtLEOPEUYOctbgBq54HH4";
   let isImageGenerating = false;
 
   const updateImageCard = (imgDataArray) => {
