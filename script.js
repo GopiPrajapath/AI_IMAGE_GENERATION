@@ -42,9 +42,15 @@ document.addEventListener('DOMContentLoaded', function() {
           "Authorization": `Bearer ${GETIMG_API_KEY}`,
         },
         body: JSON.stringify({
+          model: 'stable-diffusion-v1-5',
           prompt: userPrompt,
           num_images: userImgQuantity,
-          aspect_ratio: "1:1",
+          negative_prompt: 'Disfigured, cartoon, blurry',
+          width: 512,
+          height: 512,
+          steps: 25,
+          guidance: 7.5,
+          seed: 27,
           output_format: "jpeg",
         }),
       });
