@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>AI Image Generator HTML CSS and JavaScript | CodingNepal</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
   <script src="script.js" defer></script>
 </head>
 <body>
@@ -16,16 +17,17 @@
       <form action="#" class="generate-form">
         <input class="prompt-input" type="text" placeholder="Describe what you want to see" required>
         <div class="controls">
-          <select class="img-quantity">
-            <option value="1">1 Image</option>
+          <select class="img-quantity" title="select">
+            <option value="1" selected>1 Image</option>
             <option value="2">2 Images</option>
             <option value="3">3 Images</option>
-            <option value="4" selected>4 Images</option>
+            <option value="4">4 Images</option>
           </select>
           <button type="submit" class="generate-btn">Generate</button>
         </div>
       </form>
     </div>
+
   </section>
   <section class="image-gallery">
     <div class="img-card"><img src="images/img-1.jpg" alt="image"></div>
