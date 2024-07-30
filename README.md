@@ -37,10 +37,8 @@ Before you begin, ensure you have met the following requirements:
 ## Configuration
 
 1. Open the `script.js` file in your text editor.
-2. Locate the `GETIMG_API_KEY` constant near the top of the file:
-```javascript.
+2. Locate the `GETIMG_API_KEY` constant near the top of the file.
 3.const GETIMG_API_KEY = "your-api-key-here".
-
 4.Replace "your-api-key-here" with your actual getimg.ai API key.
 Save the file.
 
