@@ -1,12 +1,6 @@
-GETIMG.AI API KEY = "ENTER YOUR KEY"
-lmwr_sk_xUqcAcH7Ij_8HG85xlTJpSiO5FOPd1XmKgRl4JNagNo5uYBl
-
-key-2Yr8wOqtAbfdgfOLCJo0IVg5UUCsUwBG95I82VD3tf8L8E0gHASwgGvNJnF9GFtmu4TXzXbYWqTBcYgQmyP0mkieS3UgGT0d
+"""hidegopipjapath__bkaey-2Yr8wOqtAbfdgfOLCJo0IVg5UUCsUwBG95I82VD3tf8L8E0gHASwgGvNJnF9GFtmu4TXzXbYWqTBcYgQmyP0mkieS3UgGT0d
 
 
-
-test2:
-
-key-1tzCqj23coK0CFsT16jz1Fy8Blig5jr11bhRQjCDISaujE6mbUS3Pk0xwSB7xO3tvXYtBjqz4IKgtLEOPEUYOctbgBq54HH4
+"""hidegopipjapath__bkaey-1tzCqj23coK0CFsT16jz1Fy8Blig5jr11bhRQjCDISaujE6mbUS3Pk0xwSB7xO3tvXYtBjqz4IKgtLEOPEUYOctbgBq54HH4
 
 
