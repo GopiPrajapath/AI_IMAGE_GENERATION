@@ -1,29 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Meta tags for character set and viewport settings -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- Page title -->
   <title>AI Image Generator HTML CSS and JavaScript | CodingNepal</title>
+  
+  <!-- Link to external CSS file -->
   <link rel="stylesheet" href="style.css">
+  
+  <!-- Link to favicon -->
   <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+  
+  <!-- Link to external JavaScript file -->
   <script src="script.js" defer></script>
 </head>
 <body>
+  <!-- Navigation bar -->
+  <nav class="navbar">
+    <a href="#">Home</a>
+    <a href="#">About</a>
+    <a href="#">Contact</a>
+  </nav>
+
+  <!-- Section for the image generator tool -->
   <section class="image-generator">
     <div class="content">
+      <!-- Main heading -->
       <h1>AI Image Generator</h1>
+      
+      <!-- Description paragraph -->
       <p>Convert your text into an image within a second using this AI Image Generator tool.</p>
+      
+      <!-- Form for generating images -->
       <form action="#" class="generate-form">
+        <!-- Input field for text description -->
         <input class="prompt-input" type="text" placeholder="Describe what you want to see" required>
+        
+        <!-- Controls for selecting image quantity and version -->
         <div class="controls">
+          <!-- Dropdown for selecting the number of images -->
           <select class="img-quantity" title="select">
             <option value="1" selected>1 Image</option>
             <option value="2">2 Images</option>
             <option value="3">3 Images</option>
             <option value="4">4 Images</option>
           </select>
+          
+          <!-- Dropdown for selecting the image generation model -->
           <select class="img-version" title="select">
-            <option value="stable-diffusion-v1-5" selected >stable-diffusion-v1-5</option> 
+            <option value="stable-diffusion-v1-5" selected>stable-diffusion-v1-5</option>
             <option value="absolute-reality-v1-8-1">AbsoluteReality v1.8.1</option>
             <option value="dream-shaper-v8">DreamShaper v8</option>
             <option value="realistic-vision-v5-1">Realistic Vision v5.1</option>
@@ -31,19 +59,35 @@
             <option value="dark-sushi-mix-v2-25">Dark Sushi Mix v2.25</option>
             <option value="synthwave-punk-v2">SynthwavePunk v2</option>
             <option value="moonfilm-reality-v3">MoonFilm Reality V3</option>
-
           </select>
+          
+          <!-- Button to submit the form and generate images -->
           <button type="submit" class="generate-btn">Generate</button>
         </div>
       </form>
     </div>
-
   </section>
+
+  <!-- Section for displaying public generations -->
+  <section class="public-generations">
+    <h2>Public Generations</h2>
+    <div class="public-gallery"></div>
+  </section>
+
+  <!-- Section for displaying the generated images -->
   <section class="image-gallery">
+    <!-- Individual image cards -->
     <div class="img-card"><img src="images/img-1.jpg" alt="image"></div>
     <div class="img-card"><img src="images/img-2.jpg" alt="image"></div>
     <div class="img-card"><img src="images/img-3.jpg" alt="image"></div>
     <div class="img-card"><img src="images/img-4.jpg" alt="image"></div>
   </section>
+
+  <!-- Footer section -->
+  <footer class="footer">
+    <p>&copy; 2023 AI Image Generator. All rights reserved.</p>
+    <a href="#">Privacy Policy</a>
+    <a href="#">Terms of Service</a>
+  </footer>
 </body>
 </html>

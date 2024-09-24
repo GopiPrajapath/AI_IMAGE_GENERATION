@@ -34,6 +34,29 @@ document.addEventListener('DOMContentLoaded', function() {
       };
     });
   };
+
+  const updatePublicGallery = (imgDataArray, userPrompt) => {
+    const publicGallery = document.querySelector(".public-gallery");
+
+    imgDataArray.forEach((imgObject) => {
+      const imgCard = document.createElement("div");
+      imgCard.classList.add("public-card");
+
+      const imgElement = document.createElement("img");
+      const imageData = imgObject.image;
+      const getimgGeneratedImage = `data:image/jpeg;base64,${imageData}`;
+      imgElement.src = getimgGeneratedImage;
+
+      const promptOverlay = document.createElement("div");
+      promptOverlay.classList.add("prompt-overlay");
+      promptOverlay.innerText = userPrompt;
+
+      imgCard.appendChild(imgElement);
+      imgCard.appendChild(promptOverlay);
+      publicGallery.appendChild(imgCard);
+    });
+  };
+
   const generateGetimgImages = async (userPrompt, userImgQuantity, userModel) => {
     try {
       const imagePromises = [];
@@ -62,10 +85,11 @@ document.addEventListener('DOMContentLoaded', function() {
         });
         imagePromises.push(promise);
       }
-  
+
       const results = await Promise.all(imagePromises);
       console.log("Full API Responses:", JSON.stringify(results, null, 2));
       updateImageCard(results);
+      updatePublicGallery(results, userPrompt); // Add this line to update the public gallery
     } 
     catch (error) {
       console.error("Error in generateGetimgImages:", error);
@@ -76,15 +100,15 @@ document.addEventListener('DOMContentLoaded', function() {
       isImageGenerating = false;
     }
   };
-  
+
   const handleImageGeneration = (e) => {
       e.preventDefault();
       if (isImageGenerating) return;
 
       // Get user input and image quantity values
-  const userPrompt = document.querySelector(".prompt-input").value;
-  const userImgQuantity = parseInt(document.querySelector(".img-quantity").value);
-  const userModel = document.querySelector(".img-version").value;
+      const userPrompt = document.querySelector(".prompt-input").value;
+      const userImgQuantity = parseInt(document.querySelector(".img-quantity").value);
+      const userModel = document.querySelector(".img-version").value;
 
       // Get user input and image quantity values
       //const userPrompt = e.srcElement[0].value;
